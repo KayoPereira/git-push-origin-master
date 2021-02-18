@@ -1,0 +1,9 @@
+<%= @cocktail.name %>
+<% @cocktail.doses.each do |dose| %>
+  <p><%= dose.ingredient.name %> | <%= dose.description %> | <%= link_to 'Deletar', dose_path(dose), method: :delete, data: { confirm: 'Você quer deletar essa dose?' } %></p>
+  
+<% end %>
+
+<%= render 'doses/form' %> 
+
+<%= link_to 'Nova dose', new_cocktail_dose_path(@cocktail) %>
