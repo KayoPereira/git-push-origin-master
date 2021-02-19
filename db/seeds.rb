@@ -28,3 +28,5 @@ puts 'Creating ingredients'
 end
 
 puts 'All Done!'
+
+Cocktail.destroy_all
