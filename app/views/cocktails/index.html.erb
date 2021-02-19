@@ -1,4 +1,22 @@
-<% @cocktails.each do |cocktail| %>
-  <%= link_to cocktail.name, cocktail_path(cocktail) %>
-  <%= link_to 'adicionar um ingrediente',  %>
-<% end %>
+<nav class="navbar-lewagon navbar-collapse navbar-brand w-100 d-flex justify-content-between bg-dark">
+  <div class="logo-cocktail avatar ml-3">
+    <%= image_tag 'https://s2.glbimg.com/IXTttUns_iyMPAyqmr4X6CCzq4k=/620x850/e.glbimg.com/og/ed/f/original/2018/09/28/drink-piscine-bobardi.jpg', style: 'width: 50px; height: 50px; border-radius: 25px' %>
+  </div>
+  <div class="link-create-drink">
+    <%= link_to 'Crie seu drink', new_cocktail_path, class: 'btn btn-danger mr-3' %>
+  </div>
+</nav>
+
+<div class="container d-flex flex-wrap">
+  <% @cocktails.each do |cocktail| %>
+    <%# <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    <div class="card my-4 mx-4 shadow-lg my-card" style="width: 18rem;">
+      <img src="https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2018/03/mojito_tradicional.jpg" class="card-img-top" alt="Cocktail">
+      <div class="card-body d-flex justify-content-around">
+        <h5 class="card-title"><strong><%= cocktail.name %></strong></h5>
+        <%= link_to 'More info', cocktail_path(cocktail), class: 'btn btn-danger' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

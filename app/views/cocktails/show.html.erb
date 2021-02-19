@@ -1,9 +1,34 @@
-<%= @cocktail.name %>
-<% @cocktail.doses.each do |dose| %>
-  <p><%= dose.ingredient.name %> | <%= dose.description %> | <%= link_to 'Deletar', dose_path(dose), method: :delete, data: { confirm: 'Você quer deletar essa dose?' } %></p>
-  
-<% end %>
+<div class="container my-3">
+  <div class="info-geral-cocktail d-flex justify-content-around">
+    <div class="name-cocktail text-white">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  </div>
+  <div class="container-all-info d-flex justify-content-around my-5">
+        <% @cocktail.doses.each do |dose| %>
+        <% if dose.ingredient == nil %>
+        <% else %>
+          <div class="description bg-white">
+            <div class="container-p  d-flex justify-content-around">
+              <div class="ingredient ml-3">
+                <strong><p>Ing: <%= dose.ingredient.name %></p></strong>
+              </div>
+              <div class="dose"> 
+                <strong><p>Quant: <%= dose.description %></p></strong>
+              </div>
+              <i><%= link_to '', dose_path(dose), method: :delete, data: { confirm: 'Você quer deletar essa dose?' }, class: 'far fa-trash-alt mr-2' %></i>
+          </div>
+        <% end %>
+    
+        <% end %>
+    </div>
+    
 
-<%= render 'doses/form' %> 
-
-<%= link_to 'Nova dose', new_cocktail_dose_path(@cocktail) %>
+    <div class="d-flex justify-content-center">
+      <%= render 'doses/form', class: 'w-100' %> 
+    </div>
+  </div>
+  <div class="container-link-back d-flex justify-content-center">
+    <%= link_to 'Voltar a lista', root_path, class: 'btn btn-danger mt-5' %>
+  </div>
+</div>

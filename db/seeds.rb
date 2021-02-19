@@ -7,10 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+require 'json'
 
-# ingredients = JSON.parse(File.read('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'))
-# ingredients.each do |ingredient|
-#   Ingredient.create(ingredient)
-# end
+base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+result = JSON.parse(open(base_url).read)
+drinks = result['drinks']
 
-Cocktail.create(name: "Mojito")
+puts 'cleaning up Ingredient database...'
+Ingredient.destroy_all
+puts 'database is clean!'
+
+puts 'Creating ingredients'
+
+10.times do
+  new_drink = drinks.sample
+  ingredient = Ingredient.create(
+    name: new_drink.values.first
+  )
+  puts "ingredient #{ingredient.id} is created."
+end
+
+puts 'All Done!'
