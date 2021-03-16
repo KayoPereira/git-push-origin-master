@@ -1,17 +1,18 @@
-<nav class="navbar-lewagon navbar-collapse navbar-brand w-100 d-flex justify-content-between bg-dark">
+<nav class="navbar-lewagon navbar-collapse navbar-brand w-100 d-flex justify-content-between bg-dark my-nav-bar">
   <div class="logo-cocktail avatar ml-3">
     <%= image_tag 'https://s2.glbimg.com/IXTttUns_iyMPAyqmr4X6CCzq4k=/620x850/e.glbimg.com/og/ed/f/original/2018/09/28/drink-piscine-bobardi.jpg', style: 'width: 50px; height: 50px; border-radius: 25px' %>
   </div>
   <div class="link-create-drink">
+    <%= link_to 'Admin', rails_admin_path, class: 'btn btn-danger mr-3' %>
     <%= link_to 'Crie seu drink', new_cocktail_path, class: 'btn btn-danger mr-3' %>
   </div>
 </nav>
 
-<div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap cocktail-index">
   <% @cocktails.each do |cocktail| %>
     <%# <%= link_to cocktail.name, cocktail_path(cocktail)%> 
     <div class="card my-4 mx-4 shadow-lg my-card" style="width: 18rem;">
-      <%= cl_image_tag cocktail.photo.key %>
+      <%= cl_image_tag cocktail.photo.key, class: "img-cocktail"%>
       <div class="card-body d-flex justify-content-around">
         <h5 class="card-title"><strong><%= cocktail.name %></strong></h5>
         <%= link_to 'More info', cocktail_path(cocktail), class: 'btn btn-danger' %>

@@ -28,6 +28,8 @@ gem 'simple_form'
 gem 'faker'
 gem 'dotenv-rails', group: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
+gem 'rails_admin', '~> 2.0'
+gem 'blazer'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

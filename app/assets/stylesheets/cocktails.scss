@@ -25,3 +25,48 @@
   width: 400px;
   border-radius: 10px;
 }
+
+.new-cocktail {
+  background-color: white;
+  width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.general {
+  background-image: url('https://cdn.hipwallpaper.com/i/68/25/yvXz9d.jpg'); 
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  .cocktail-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-nav-bar {
+    background-color: black;
+    width: 100%;
+    margin-bottom: 5vh;
+  }
+
+  .general {
+    height: 100%;
+    background-size: auto;
+  }
+
+  .new-cocktail {
+    width: 90%;
+  }
+
+  .teste {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+  }
+}

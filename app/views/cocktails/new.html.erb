@@ -1,7 +1,13 @@
-<h1>Crie seu cocktail!</h1>
+<div class="d-flex justify-content-center text-white my-5">
+  <h1>Crie seu cocktail!</h1>
+</div>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="d-flex justify-content-center new-cocktail">
+  
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file, class: 'btn btn-danger' %>
+    <%= f.submit class: 'btn btn-danger' %>
+    <%= link_to 'Voltar', root_path, class: 'btn btn-danger' %>
+  <% end %>
+</div>

@@ -1,15 +1,15 @@
-<div class="container my-3">
+
   <div class="info-geral-cocktail d-flex justify-content-around">
     <div class="name-cocktail text-white">
       <h1><%= @cocktail.name %></h1>
     </div>
   </div>
-  <div class="container-all-info d-flex justify-content-around my-5">
+  <div class="container-all-info d-flex justify-content-around my-5 teste">
         <% @cocktail.doses.each do |dose| %>
         <% if dose.ingredient == nil %>
         <% else %>
-          <div class="description bg-white">
-            <div class="container-p  d-flex justify-content-around">
+          <div class="description bg-white mb-5">
+            <div class="container-p d-flex justify-content-around">
               <div class="ingredient ml-3">
                 <strong><p>Ing: <%= dose.ingredient.name %></p></strong>
               </div>
@@ -31,4 +31,3 @@
   <div class="container-link-back d-flex justify-content-center">
     <%= link_to 'Voltar a lista', root_path, class: 'btn btn-danger mt-5' %>
   </div>
-</div>
